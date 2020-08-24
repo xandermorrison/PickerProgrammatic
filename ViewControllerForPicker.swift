@@ -2,13 +2,13 @@ import UIKit
 
 class MainScreen: UIViewController {
     
-    var numberOfQuestions = 0 {
+    var number = 0 {
         didSet {
             // Check if picker is updating variable
-            print(numberOfQuestions)
+            print(number)
         }
     }
-    let numsOfQuestions: [Int] = Array(1..<1001)
+    let nums: [Int] = Array(1..<1001)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +33,14 @@ extension MainScreen: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent: Int) -> Int {
-        return numsOfQuestions.count
+        return nums.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(numsOfQuestions[row])
+        return String(nums[row])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        numberOfQuestions = numsOfQuestions[row]
+        number = nums[row]
     }
 }
